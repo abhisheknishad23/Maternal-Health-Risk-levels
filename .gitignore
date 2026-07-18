@@ -27,3 +27,19 @@ Thumbs.db
 # Flask/Flask-Session files
 instance/
 .webassets-cache
+venv
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# IDEs and Editors Configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

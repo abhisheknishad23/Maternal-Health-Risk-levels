@@ -32,21 +32,21 @@
             <!-- Maternal Health Card -->
             <div class="col-lg-6 mb-4">
                 <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white text-center py-3">
+                    <div class="card-header bg-black text-white text-center py-3">
                         <h3><i class="fa-solid fa-person-pregnant me-2"></i> Maternal Health Risk Predictor</h3>
                     </div>
                     <div class="card-body p-4">
                         <form id="maternalForm">
                             <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Age (Years)</label><input type="number" name="age" class="form-control" value="0" placeholder="Enter Age" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Diastolic BP (mmHg)</label><input type="number" name="diastolic_bp" class="form-control" value="0.0" placeholder="Enter BP" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Age (Years)</label><input type="number" name="age" class="form-control" value="" placeholder="0" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Diastolic BP (mmHg)</label><input type="number" name="diastolic_bp" class="form-control" value="" placeholder="0.0" required></div>
                             </div>
-                            <div class="mb-3"><label class="form-label fw-semibold">Blood Sugar - BS (mmol/L)</label><input type="number" step="0.1" name="bs" class="form-control" value="0.0" placeholder="Enter BS" required></div>
+                            <div class="mb-3"><label class="form-label fw-semibold">Blood Sugar - BS (mmol/L)</label><input type="number" step="0.1" name="bs" class="form-control" value="" placeholder="0.0" required></div>
                             <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Body Temperature (°F)</label><input type="number" step="0.1" name="body_temp" class="form-control" value="0.0" placeholder="Enter BT" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Heart Rate (bpm)</label><input type="number" name="heart_rate" class="form-control" value="0" placeholder="Enter HR" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Body Temperature (°F)</label><input type="number" step="0.1" name="body_temp" class="form-control" value="" placeholder="0.0" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Heart Rate (bpm)</label><input type="number" name="heart_rate" class="form-control" value="" placeholder="0" required></div>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100 btn-predict mt-2"><i class="fa-solid fa-gauge me-2"></i> Analyze Maternal Risk</button>
+                            <button type="submit" class="btn btn-success w-100 btn-predict mt-2"><i class="fa-solid fa-gauge me-2"></i> Analyze Maternal Risk</button>
                         </form>
                         <div id="maternalResult" class="result-box text-center shadow-sm"></div>
                     </div>
@@ -56,18 +56,18 @@
             <!-- Fetal Health Card -->
             <div class="col-lg-6 mb-4">
                 <div class="card shadow-lg">
-                    <div class="card-header bg-success text-white text-center py-3">
+                    <div class="card-header bg-black text-white text-center py-3">
                         <h3><i class="fa-solid fa-baby me-2"></i> Fetal Health CTG Classifier</h3>
                     </div>
                     <div class="card-body p-4">
                         <form id="fetalForm">
                             <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Baseline FHR (bpm)</label><input type="number" name="baseline_value" class="form-control" value="0" placeholder="Enter FHR" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Accelerations (per sec)</label><input type="number" step="0.001" name="accelerations" class="form-control" value="0.000" placeholder="Enter Accelerations" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Baseline FHR (bpm)</label><input type="number" name="baseline_value" class="form-control" value="" placeholder="Enter FHR" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Accelerations (per sec)</label><input type="number" step="0.001" name="accelerations" class="form-control" value="" placeholder="Enter Accelerations" required></div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Fetal Movement (per sec)</label><input type="number" step="0.001" name="fetal_movement" class="form-control" value="0.000" required></div>
-                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Uterine Contractions (/s)</label><input type="number" step="0.001" name="uterine_contractions" class="form-control" value="0.000" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Fetal Movement (per sec)</label><input type="number" step="0.001" name="fetal_movement" class="form-control" value="" placeholder="Enter Fatal Movement" required></div>
+                                <div class="col-md-6 mb-3"><label class="form-label fw-semibold">Uterine Contractions (/s)</label><input type="number" step="0.001" name="uterine_contractions" class="form-control" value="" placeholder="Enter Uterine Contractions" required></div>
                             </div>
                             <button type="submit" class="btn btn-success w-100 btn-predict mt-4"><i class="fa-solid fa-wand-magic-sparkles me-2"></i> Classify Fetal Status</button>
                         </form>
@@ -79,6 +79,7 @@
     </div>
 
     <!-- Professional Dynamic Alert Handling Script -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function getAlertClass(status) {
             status = status.toLowerCase();
