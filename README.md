@@ -1,27 +1,56 @@
-#  Women Health Care 
+# Women Health Care Analysis & Diagnostic Platform
 
-A professional grade, end-to-end Machine Learning web application designed to assist clinical workflows by monitoring maternal and fetal health parameters. The platform integrates two distinct predictive pipelines to ensure comprehensive prenatal risk evaluation.
+An industry-standard, end-to-end Machine Learning web application designed to predict maternal health risk levels and classify fetal health conditions using clinical data. Built with a decoupled high-performance architecture using **FastAPI** for the backend engine and an asynchronous, responsive frontend UI.
 
-##  Key Features
-- **Maternal Health Risk Predictor:** Analyzes maternal biometric markers (Age, Diastolic BP, Blood Sugar, Body Temperature, Heart Rate) to classify cases into *Low Risk*, *Mid Risk*, or *High Risk*.
-- **Fetal Health CTG Classifier:** Processes 21 distinct Cardiotocography (CTG) physical variables—such as fetal heart rate baseline, accelerations, movements, and uterine contractions—categorizing statuses into *Normal*, *Suspect*, or *Pathological*.
-- **Modern Clinical Dashboard:** Developed using dynamic Bootstrap templates and jQuery to render color-coded severity alerts (Green/Yellow/Red) based on real-time diagnostic outputs.
+---
 
-##  Tech Stack
-- **Backend:** Flask (Python)
-- **Machine Learning & Data Engine:** Scikit-Learn, Pandas, NumPy, Joblib
-- **Core Algorithms:** Gradient Boosting Classifier, Random Forest, K-Nearest Neighbors (Hyperparameter tuned via GridSearchCV)
-- **Frontend UI:** HTML5, Bootstrap 5, FontAwesome, JavaScript (AJAX/jQuery)
+## Key Features
+- **Dual Inference Engine:** 
+  - **Maternal Risk Predictor:** Analyzes patient vitals (Age, BP, Blood Sugar, Temperature, Heart Rate) to classify risk as *Low*, *Mid*, or *High*.
+  - **Fetal Health CTG Classifier:** Classifies Cardiotocography metrics into *Normal*, *Suspect*, or *Pathological* health states.
+- **Production-Ready Architecture:** Clean separation of concerns with a dedicated `pipeline.py` inference wrapper preventing terminal data alignment warnings.
+- **Asynchronous UI:** Dynamic jQuery integrated forms provide seamless, real-time diagnostic outcomes and clinical action guidelines without full-page reloads.
+- **Robust Environment:** Built-in isolated virtual environment structure matching software engineering best practices.
 
-## Model Architecture & Data Engineering
-- Extensively cleaned dataset structures by mitigating multi-collinearity issues (VIF analysis) and eliminating significant outlier anomalies.
-- Handled feature space alignment via custom robust matrix transformations through `StandardScaler` checkpoints to bypass asynchronous user structural inputs.
-- Automated precise structural alignment for high-fidelity internal 21-feature array vectors within production routes.
+---
 
-##  Getting Started
+## Project Architecture & Directory Structure
+
+```text
+Women-Health-Care-AI/
+│
+├── app.py                         # Core FastAPI Web Server 
+├── pipeline.py                    # Preprocessing & ML Inference Engine
+├── scaler.pkl                     # Pre-trained Maternal Data Scaler
+├── maternal_health_gbc_model.pkl   # Gradient Boosting Classifier for Maternal Risk
+├── fetal_scaler.pkl               # Pre-trained Fetal Data Scaler
+├── fetal_health_model.pkl         # Machine Learning Model for Fetal Health
+├── requirements.txt               # Main Dependency Manifest
+├── .gitignore                     # Git Tracking Exclusion Configurations
+│
+└── templates/
+    └── index.html                 # Asynchronous Frontend User Interface
+
+
+Tech Stack & Dependencies
+
+Backend: FastAPI, Uvicorn, Jinja2, Python-Multipart
+
+Machine Learning: Scikit-Learn (v1.3.2), Pandas, NumPy, Joblib
+
+Frontend: HTML5, CSS3, Bootstrap 5, FontAwesome Icons, jQuery (Asynchronous AJAX integration)
 
 1. Clone the repository:
    ```bash
    git clone (https://github.com/abhisheknishad23/Maternal-Health-Risk-levels.git)
    
-   cd Women-Health-Care-AI
+
+2. Set Up a Virtual Environment
+   python -m venv venv
+   venv\Scripts\activate
+
+3. Install Required Dependencies
+   pip install -r requirements.txt
+
+4. Run the Platform
+   python app.py
